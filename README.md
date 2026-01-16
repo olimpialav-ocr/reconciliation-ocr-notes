@@ -1,20 +1,41 @@
 # reconciliation-ocr-notes
 
-This repository documents the real problems of OCR in accounting workflows.
+This repository documents real-world problems in OCR for accounting workflows.
 
-The goal is not fast extraction, but **correctness and trust**.
+The focus is not fast extraction or automation demos, but **financial correctness, reconciliation, and user trust**.
 
-Focus areas:
-- Line-item level OCR for invoices and receipts
-- Totals vs line-sum reconciliation (handling rounding, VAT, OCR noise)
-- Deterministic backend logic for financial correctness
-- Confidence scoring and human-in-the-loop correction
-- Duplicate document detection
-- Systems designed for accountants, not generic document AI demos
+## Scope
+This work explores OCR challenges across common accounting documents:
+- invoices
+- receipts
+- credit notes
+- bank statements
+- payroll-related documents
 
-Example problem:
-OCR extracts a total of 100.00, but the sum of extracted line items is 99.99.
-This project explores how a system should reconcile this **without breaking user trust**.
+## Core problems of interest
+- Line-item level extraction (tables, quantities, prices)
+- Totals vs sum-of-lines mismatches (e.g. 100.00 vs 99.99)
+- VAT presence, absence, and rounding drift
+- Currency and formatting inconsistencies
+- Duplicate documents and ambiguous matches
+- When OCR results should be blocked vs escalated to human review
 
-Looking to collaborate with engineers experienced in:
-OCR, Document AI, backend systems, accounting workflows, and reconciliation logic.
+## Example problem
+An OCR system extracts a document total of 100.00, but the sum of extracted line items is 99.99.
+
+This repository explores how such discrepancies should be **handled transparently and safely** in accounting workflows, without silent corrections and without breaking user trust.
+
+## Philosophy
+- Correctness over speed
+- Deterministic rules over silent automation
+- Human-in-the-loop where trust is required
+- Systems designed for accountants, not generic document processing
+
+This is an early exploration of problem space and principles — not an implementation or finished product.
+
+## Collaboration
+This repository exists to connect with engineers who have experience in:
+- OCR and document AI
+- backend systems handling financial data
+- accounting or compliance-sensitive workflows
+- reconciliation logic and edge-case handling
